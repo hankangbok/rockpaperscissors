@@ -20,6 +20,7 @@ function checkifWinner(score1,score2){
 	if (score2>=5){
 		return displayWinner("CPU got 5 points! CPU wins!");
 	}
+	//Add in the reset function as well to start things over. 
 }
 
 function game2(){
@@ -71,6 +72,7 @@ function game2(){
                 break;
 		}
 		//check the score, and print the tally to the DOM?
+		wipeBoard();
 		displayWinner(gameResult);
 		checkifWinner(playerWins,CPUWins);
      }
@@ -80,6 +82,18 @@ const allbuttons = document.querySelectorAll('button');
 allbuttons.forEach((eachbutton) => {
     eachbutton.addEventListener('click', game2);
 });
+
+function wipeBoard(){
+  var list = document.getElementById('scoreboard');
+  if (list.hasChildNodes()){
+	  list.removeChild(list.childNodes[0]);
+  }
+  
+  var list = document.getElementById('displayresults');
+  if (list.hasChildNodes()){
+	  list.removeChild(list.childNodes[0]);
+  }
+}
 
 function displayWinner(whoWon) {
   const container = document.querySelector('#displayresults');
