@@ -39,25 +39,27 @@ function game2(){
 		switch(gamePlay){
             case 0:
 				gameResult = "It's a tie. " +" P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1];	
-				console.log("It's a tie. " +" P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1]);
-				displayWinner(gameResult);
 				ties+=1;
+				console.log("It's a tie. " +" P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1]);
+				displayWinner(gameResult);				
                 break;
             case(-1):
 			case(2):
 				gameResult="Player 1 wins "  +"P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1];
+				playerWins+=1;
 				displayWinner(gameResult);
 				console.log("Player 1 wins "  +"P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1]);
-				playerWins+=1;
-                break;
+				break;
 			case(1):
 			case(-2):
 			    gameResult = "CPU wins " + "P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1];
+				CPUWins+=1;
 				displayWinner(gameResult);
 			    console.log("CPU wins " +"P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1]);
-                CPUWins+=1;
                 break;
-        }	
+		}
+		//check the score, and print the tally to the DOM?
+
      }
 }
 
@@ -67,12 +69,21 @@ allbuttons.forEach((eachbutton) => {
 });
 
 function displayWinner(whoWon) {
-  const container = document.querySelector('#displayresults')
+  const container = document.querySelector('#displayresults');
   const content = document.createElement('div');
   content.classList.add('content');
   content.textContent = whoWon;
   console.log("this should output who won")
-  container.appendChild(content);
+  
+ currentscores = "Player 1 Score: " +playerWins +  " CPU Score: " + CPUWins;
+ const scores = document.querySelector('#scoreboard');
+ const scorecontent = document.createElement('div');
+ scorecontent.classList.add('scorecontent');
+ scorecontent.classList.add('resultsbox');
+ scorecontent.textContent = currentscores;
+ 
+ scores.appendChild(scorecontent); 
+ container.appendChild(content);
 }
 // var rockbutton = document.querySelector('#rock');
 // rockbutton.addEventListener('click', game2);
