@@ -1,8 +1,14 @@
 
 button{
+  display: inline-block;
   font: 40px Times;
   box-shadow: 5px 10px 10px rgb(201, 108, 123);
   padding:20px;
+
+}
+
+.centered{
+  text-align: center;
 }
 
 .prettybox{
