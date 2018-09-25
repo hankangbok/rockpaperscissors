@@ -1,5 +1,20 @@
+
+button{
+  font: 40px Times;
+  box-shadow: 5px 10px 10px rgb(201, 108, 123);
+  padding:20px;
+}
+
+.prettybox{
+  width:40%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border: 10px solid rgb(71, 7, 18)
+}
+
 .resultsbox {
-  width: 30%;
   background-color: rgb(233, 192, 192); 
   text-align: center;
   margin: 10px

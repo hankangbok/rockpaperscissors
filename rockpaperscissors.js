@@ -13,12 +13,12 @@ function randomNum(){
 }
 
 function checkifWinner(score1,score2){
-	if (score1==5){
-		return displayWinner("Player 1 got 5 points! Player 1 wins!")
+	if (score1>=5){
+		return displayWinner("Player 1 got 5 points! Player 1 wins!");
 	}
 
-	if (score2==5){
-		return displayWinner("CPU got 5 points! CPU wins!")
+	if (score2>=5){
+		return displayWinner("CPU got 5 points! CPU wins!");
 	}
 }
 
