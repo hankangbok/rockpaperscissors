@@ -1,5 +1,7 @@
 //General global variable to keep track of which round it is
 //Also a variable to keep track of wins/losses
+
+//Indents are really wrong rn but its fine
 round=1;
 playerWins=0;
 CPUWins=0;
@@ -8,6 +10,16 @@ ties=0;
 function randomNum(){
     let CPUselection=Math.floor(Math.random()*3+1);
     return CPUselection;
+}
+
+function checkifWinner(score1,score2){
+	if (score1==5){
+		return displayWinner("Player 1 got 5 points! Player 1 wins!")
+	}
+
+	if (score2==5){
+		return displayWinner("CPU got 5 points! CPU wins!")
+	}
 }
 
 function game2(){
@@ -41,25 +53,26 @@ function game2(){
 				gameResult = "It's a tie. " +" P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1];	
 				ties+=1;
 				console.log("It's a tie. " +" P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1]);
-				displayWinner(gameResult);				
+				//displayWinner(gameResult);				
                 break;
             case(-1):
 			case(2):
 				gameResult="Player 1 wins "  +"P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1];
 				playerWins+=1;
-				displayWinner(gameResult);
+				//displayWinner(gameResult);
 				console.log("Player 1 wins "  +"P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1]);
 				break;
 			case(1):
 			case(-2):
 			    gameResult = "CPU wins " + "P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1];
 				CPUWins+=1;
-				displayWinner(gameResult);
+				//displayWinner(gameResult);
 			    console.log("CPU wins " +"P1 used: "+options[playernum-1] +" CPU used: "+options[CPUselection-1]);
                 break;
 		}
 		//check the score, and print the tally to the DOM?
-
+		displayWinner(gameResult);
+		checkifWinner(playerWins,CPUWins);
      }
 }
 
@@ -73,8 +86,7 @@ function displayWinner(whoWon) {
   const content = document.createElement('div');
   content.classList.add('content');
   content.textContent = whoWon;
-  console.log("this should output who won")
-  
+    
  currentscores = "Player 1 Score: " +playerWins +  " CPU Score: " + CPUWins;
  const scores = document.querySelector('#scoreboard');
  const scorecontent = document.createElement('div');
